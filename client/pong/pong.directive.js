@@ -19,9 +19,13 @@ function pong($window) {
 
             var points = 0;
 
+            score.css('left', 10 + 'px');
+            score.css('bottom', fieldHeight - 30 + 'px');
+
             function updateScore() {
                 score.text(""+points);
             }
+            updateScore();
 
             var playerLeft = fieldWidth / 2;
             var playerSpeed = 0.2;
@@ -117,9 +121,11 @@ function pong($window) {
                 if (ballBottom + ballHeight / 2 > fieldHeight) {
                     ballGoingUp = false;
                 }
-                if (ballBottom - ballHeight / 2 < -playerHeight) {
+                if (ballBottom - ballHeight / 2 < -playerHeight * 2) {
                     // TODO Reset tai game end
                     ballGoingUp = true;
+                    points = 0;
+                    updateScore();
                 }
 
                 //console.log(playerLeft - playerWidth / 2 > ballLeft + ballWidth / 2);
@@ -128,6 +134,8 @@ function pong($window) {
                 playerLeft + playerWidth / 2  < ballLeft - ballWidth ||
                     -playerHeight / 2 > ballBottom + ballHeight / 2)) {
                     ballGoingUp = true;
+                    points++;
+                    updateScore();
                 }
 
                 ball.css('left', ballLeft + 'px');

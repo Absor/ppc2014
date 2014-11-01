@@ -16,7 +16,7 @@
 
                 <div id="player" style="height: 100px; width: 100px; background-color: black; position: absolute;"></div>
                 <div id="ball" style="height: 100px; width: 100px; background-color: black; position: absolute;"></div>
-                <span id="score" style="height: 100px; width: 100px; position: absolute;"></span>
+                <div id="score" style="position: absolute;"></div>
 
             </div>
             <md-card ng-repeat="task in column.tasks" ui-draggable="true" drag="task" on-drop-success="board.removeTask(task, column)" ng-click="board.openTask(task)">
