@@ -1,19 +1,30 @@
 <md-dialog aria-label="Task">
+    <form>
     <md-content>
+        <h>Add task</h>
         <div class="row">
             <md-text-float label="Title" ng-model="task.task.title"></md-text-float>
             {{task.three}}
         </div>
         <div class="row">
-            <md-text-float label="Description" ng-model="task.task.description" ></md-text-float>
+            <md-input-group class="md-default-theme md-input-has-value">
+                <label class="ng-binding">Description</label>
+            </md-input-group>
+            <md-input-group class="md-default-theme">
+                <textarea rows="5" ng-model="task.task.description">
+
+                </textarea>
+            </md-input-group>
+
         </div>
     </md-content>
     <div class="md-actions" layout="horizontal" layout-align="end">
-        <md-button ng-click="task.cancel()">
+        <md-button type="button" ng-click="task.cancel()">
             Cancel
         </md-button>
-        <md-button class="md-primary" ng-click="task.hide()">
-            Add
+        <md-button type="submit" class="md-primary" ng-click="task.hide()">
+            {{task.edit ? "Edit" : "Add"}}
         </md-button>
     </div>
+    </form>
 </md-dialog>

@@ -8,7 +8,8 @@ function MainController($state, boardService) {
             name: this.name,
             columns: [
                 {
-                    name: "Backlog"
+                    name: "Backlog",
+                    tasks: {}
                 },
                 {
                     name: "In progress"
@@ -19,7 +20,6 @@ function MainController($state, boardService) {
             ]
         }).then(function(ref) {
             var id = ref.name();
-            console.log("jee");
             $state.go('board', {id: id});
         });
     };
