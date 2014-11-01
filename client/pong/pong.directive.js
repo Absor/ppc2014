@@ -24,8 +24,16 @@ function pong($window) {
 
             function updateScore() {
                 score.text(""+points);
+                ballSpeed = 0.3 + (0.05 * (points / 3));
             }
             updateScore();
+
+            
+
+            field.hide();
+            function showElement() {
+                field.show();
+            }
 
             var playerLeft = fieldWidth / 2;
             var playerSpeed = 0.2;
@@ -67,6 +75,9 @@ function pong($window) {
                     case 39:
                         input.right = true;
                         event.preventDefault();
+                        break;
+                    case 45:
+                        showElement();
                         break;
                 }
             };
