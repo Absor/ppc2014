@@ -11,9 +11,13 @@
 <div layout="horizontal" layout-fill flex>
     <div layout="vertical" ng-repeat="column in board.board.columns" flex ui-on-drop="board.onDrop($data, column)" style="text-align: center; border-right: 1px solid black;">
         <h3>{{column.name}}</h3>
-        <div style="border-top: 1px solid black;">
-            <div ng-if="$last && !column.tasks" ng-controller="PongController">
-                {{column}}
+        <div style="border-top: 1px solid black;" layout-fill flex>
+            <div ng-if="$index === 1 && !column.tasks" pong style="height: 500px; position: absolute;" flex>
+
+                <div id="player" style="height: 100px; width: 100px; background-color: black; position: absolute;"></div>
+                <div id="ball" style="height: 100px; width: 100px; background-color: black; position: absolute;"></div>
+                <span id="score" style="height: 100px; width: 100px; position: absolute;"></span>
+
             </div>
             <md-card ng-repeat="task in column.tasks" ui-draggable="true" drag="task" on-drop-success="board.removeTask(task, column)" ng-click="board.openTask(task)">
                 <div layout="vertical" layout-fill flex>

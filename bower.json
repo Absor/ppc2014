@@ -13,7 +13,8 @@
     "angularfire": "~0.8.2",
     "lodash": "~2.4.1",
     "angular-material": "~0.5.1",
-    "angular-native-dragdrop": "ganarajpr/angular-dragdrop#~1.0.5"
+    "angular-native-dragdrop": "ganarajpr/angular-dragdrop#~1.0.5",
+    "jquery": "~2.1.1"
   },
   "overrides": {
     "mockfirebase": {
