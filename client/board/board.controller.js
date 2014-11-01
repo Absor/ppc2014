@@ -54,7 +54,7 @@ function BoardController($stateParams, $mdDialog, boardService, _) {
             controllerAs: 'task',
             locals: {
                 task: _.clone(task),
-                edit: true
+                edit: false
             }
         }).then(function(modifiedTask) {
             _.merge(task, modifiedTask);

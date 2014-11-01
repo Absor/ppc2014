@@ -3,12 +3,14 @@ angular.module('ppc').controller('TaskController', TaskController);
 function TaskController($mdDialog, task, edit) {
     this.task = task;
     this.edit = edit;
+    this.hide = hide;
+    this.cancel = cancel;
 
-    this.hide = function() {
+    function hide() {
         $mdDialog.hide(this.task);
-    };
+    }
 
-    this.cancel = function() {
+    function cancel() {
         $mdDialog.cancel();
-    };
+    }
 }
