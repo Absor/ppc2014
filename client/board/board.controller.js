@@ -8,7 +8,11 @@ function BoardController($stateParams, $mdDialog, boardService, _) {
             templateUrl: 'task/task.html',
             targetEvent: event,
             controller: TaskController,
-            controllerAs: 'task'
+            controllerAs: 'task',
+            locals: {task: {
+                title: "",
+                description: ""
+            }}
         }).then(function(task) {
             if (!board.columns[0].tasks) {
                 board.columns[0].tasks = [];
@@ -23,13 +27,27 @@ function BoardController($stateParams, $mdDialog, boardService, _) {
         if (!column.tasks) {
             column.tasks = [];
         }
-        column.tasks.push(task);
+        column.tasks.unshift(task);
     };
 
     this.removeTask = function(task, column) {
         _.remove(column.tasks, function(otherTask) {
             return otherTask === task;
-        })
+        });
         this.board.$save();
+    };
+
+    this.openTask = function(task) {
+        var board = this.board;
+        $mdDialog.show({
+            templateUrl: 'task/task.html',
+            targetEvent: event,
+            controller: TaskController,
+            controllerAs: 'task',
+            locals: {task: _.clone(task)}
+        }).then(function(modifiedTask) {
+            _.merge(task, modifiedTask);
+            board.$save();
+        });
     };
 }

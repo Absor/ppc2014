@@ -1,4 +1,12 @@
-<input type="text" ng-model="main.name">
-<input type="button" value="Go!" ng-click="main.createBoard()" ng-disabled="main.name === ''">
+<div layout="vertical" layout-align="center" layout-fill flex>
+        <div layout="horizontal" layout-align="center">
 
-        {{main.boards}}
+                <md-card class="md-whiteframe-z1" layout layout-align="center center">
+                        <md-text-float type="text" ng-model="main.name"></md-text-float>
+                        <md-button noink class="md-primary" ng-click="main.createBoard()" ng-disabled="main.name === ''">
+                                Go!
+                        </md-button>
+                </md-card>
+        </div>
+</div>
+

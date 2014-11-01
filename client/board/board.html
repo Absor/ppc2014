@@ -1,12 +1,14 @@
 <input type="button" value="Add task" ng-click="board.addTask($event)">
 <div layout="horizontal" layout-fill flex>
-    <div layout="vertical" ng-repeat="column in board.board.columns" flex ui-on-drop="board.onDrop($data, column)">
-        {{column.name}}
-        <md-card ng-repeat="task in column.tasks" ui-draggable="true" drag="task" on-drop-success="board.removeTask(task, column)">
-            <h4 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">{{task.title}}</h4>
-            <p style="text-overflow: ellipsis; max-height: 10em; overflow-y: hidden;">
-                {{task.description}}
-            </p>
-        </md-card>
+    <div layout="vertical" ng-repeat="column in board.board.columns" flex ui-on-drop="board.onDrop($data, column)" style="text-align: center; border-right: 1px solid black;">
+        <h3>{{column.name}}</h3>
+        <div style="border-top: 1px solid black;">
+            <md-card ng-repeat="task in column.tasks" ui-draggable="true" drag="task" on-drop-success="board.removeTask(task, column)" ng-click="board.openTask(task)">
+                <h4 style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">{{task.title}}</h4>
+                <p style="text-overflow: ellipsis; max-height: 10em; overflow-y: hidden;">
+                    {{task.description}}
+                </p>
+            </md-card>
+        </div>
     </div>
 </div>
