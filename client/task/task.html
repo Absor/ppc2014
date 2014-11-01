@@ -1,0 +1,18 @@
+<md-dialog aria-label="Task">
+    <md-content>
+        <div class="row">
+            <md-text-float label="Title" ng-model="task.task.title"></md-text-float>
+        </div>
+        <div class="row">
+            <md-text-float label="Description" ng-model="task.task.description" ></md-text-float>
+        </div>
+    </md-content>
+    <div class="md-actions" layout="horizontal" layout-align="end">
+        <md-button ng-click="task.cancel()">
+            Cancel
+        </md-button>
+        <md-button class="md-primary" ng-click="task.hide()">
+            Add
+        </md-button>
+    </div>
+</md-dialog>

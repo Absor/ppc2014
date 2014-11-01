@@ -1,0 +1,1 @@
+angular.module('ppc', ['ui.router', 'firebase', 'ngMaterial', 'ang-drag-drop']);
